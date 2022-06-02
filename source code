@@ -1,0 +1,73 @@
+#from calendar import c
+#import profile
+import pandas as pd
+#from pandas_profiling import ProfileReport
+
+df=pd.read_csv('new.csv')
+#df=df.drop(columns=['Unnamed: 11'])
+#df=df.drop(labels=[15,16,17,18])
+#print(df)
+my=pd.read_csv('company.csv')
+#my = my.iloc[:-1 , :]
+#my=my.drop(columns=['Unnamed: 12'])
+#print(my)
+#generate a report
+#profile=ProfileReport(df)
+#profile.to_file(output_file="Book1.html")
+def myproject():
+    print("Enter 'C' to check companys details :: Or :: Enter 'S' to check eligibility criteria of Students ")
+    a=input()
+    if(a=='C' or a=='c'):
+        print(my)
+    elif(a=='S' or a=='s'):
+        print("Enter the company name you want to check for students eligibility :-",end=" ")
+        cname=input()
+        c1="Infosys"
+        c2="Accenture"
+        c3="TCS"
+        c4="Wipro"
+        c5="Adobe"
+        if(cname.casefold()==c1.casefold()):
+            print("****Company:: INFOSYS****")
+            print("**Month:: May**")
+            print("*****Package(PA):: 3.9 Lakh*****")
+            print("Students eligible :-")
+            print(df.loc[(df['Skill 1']=='Python')&(df['Skill 2']=='Cpp')&(df['Skill 3']=='OOPs')&(df['Skill 4']=='DBMS')&(df['10th ']>60)&(df['12th']>60)&(df['Semester 5(overall)']>70)])
+        if(cname.casefold()==c2.casefold()):
+            print("****Company:: ACCENTURE****")
+            print("**Month:: July**")
+            print("*****Package(PA):: 4.5 Lakh*****")
+            print("Students eligible :-")
+            print(df.loc[(df['Skill 1']=='Python')&(df['Skill 2']=='Cpp')&(df['Skill 4']=='DBMS')&(df['Skill 5']=='WebD')&(df['10th ']>65)&(df['12th']>65)&(df['Semester 5(overall)']>65)])
+        if(cname.casefold()==c3.casefold()):
+            print("****Company:: TCS****")
+            print("**Month:: September**")
+            print("*****Package(PA):: 5.9 Lakh*****")
+            print("Students eligible :-")
+            print(df.loc[(df['Skill 2']=='Cpp')&(df['Skill 3']=='OOPs')&(df['Skill 4']=='DBMS')&(df['Skill 5']=='WebD')&(df['10th ']>60)&(df['12th']>75)&(df['Semester 5(overall)']>60)])
+        if(cname.casefold()==c4.casefold()):
+            print("****Company:: Wipro****")
+            print("**Month:: August**")
+            print("*****Package(PA):: 2.5 Lakh*****")
+            print("Students eligible  :-")
+            print(df.loc[(df['Skill 1']=='Python')&(df['Skill 2']=='Cpp')&(df['Skill 3']=='OOPs')&(df['10th ']>60)&(df['12th']>60)&(df['Semester 5(overall)']>60)])
+        if(cname.casefold()==c5.casefold()):
+            print("****Company:: Adobe****")
+            print("**Month:: November**")
+            print("*****Package(PA):: 8.0 Lakh*****")
+            print("Students eligible for Adobe are :-")
+            print(df.loc[(df['Skill 1']=='Python')&(df['Skill 2']=='Cpp')&(df['Skill 3']=='OOPs')&(df['Skill 4']=='DBMS')&(df['Skill 5']=='WebD')&(df['10th ']>65)&(df['12th']>75)&(df['Semester 5(overall)']>75)])
+    else:
+        print("wrong Input !!!")
+        print("Enter 'ch' to check again or 'E' to exit the appliction :-- " )
+        choice=input()
+        if(choice=='ch'):
+            myproject()
+        else:
+            exit()
+myproject()
+
+
+
+
+
